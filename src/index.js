@@ -31,7 +31,8 @@ var parserOpts = {
 
 // eslint-disable-next-line no-process-env
 var jiraCredentials = escape(process.env.JIRA_USERNAME) + ':' + escape(process.env.JIRA_PASSWORD);
-var jiraURL = 'https://' + jiraCredentials + '@jira.devops.lloydsbanking.com/rest/api/latest/issue/';
+// eslint-disable-next-line no-process-env
+var jiraURL = 'https://' + jiraCredentials + '@' + process.env.JIRA_URL + '/rest/api/latest/issue/';
 
 var getIssue = function (key) {
   if (!foundIssues[key]) {
