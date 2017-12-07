@@ -73,6 +73,8 @@ var writerOpts = {
 
     commit.references = commit.references
       .forEach(function (reference) {
+        // eslint-disable-next-line no-console
+        console.log('Found reference ' + reference.issue);
         var key = 'COB-' + parseInt(reference.issue, 10).toString();
 
         if (!foundIssues[key]) {
