@@ -13,6 +13,20 @@
       "^[A-Z]?[a-z]+(?:[A-Z][a-z]+)*(\\.[a-z]+)*$",
       false
     ],
+    "id-length": [
+      1,
+      {
+        "exceptions": [
+          "P",
+          "R",
+          "$",
+          "Q",
+          "_"
+        ],
+        "max": 50,
+        "min": 2
+      }
+    ],
     "no-var": "off",
     "vars-on-top": "off",
     "no-restricted-syntax": "off",
