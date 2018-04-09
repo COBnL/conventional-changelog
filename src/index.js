@@ -32,7 +32,7 @@ var parserOpts = {
 // eslint-disable-next-line no-process-env
 var jiraCredentials = escape(process.env.JIRA_USERNAME) + ':' + escape(process.env.JIRA_PASSWORD);
 // eslint-disable-next-line no-process-env
-var jiraURL = 'https://' + jiraCredentials + '@' + process.env.JIRA_URL + '/rest/api/latest/issue/';
+var jiraURL = `https://${jiraCredentials}@${process.env.JIRA_URL}/rest/api/latest/issue/`;
 
 var getIssue = function (key) {
   if (!foundIssues[key]) {
@@ -48,7 +48,8 @@ var getIssue = function (key) {
         subtask: details.fields.issuetype.subtask,
         type: details.fields.issuetype.name,
         summary: details.fields.summary,
-        priority: priorities[details.fields.priority.id]
+        priority: priorities[details.fields.priority.id],
+        url: `https://{process.env.JIRA_URL}/browse/${key}`
       };
 
       if (details.fields.parent) {
